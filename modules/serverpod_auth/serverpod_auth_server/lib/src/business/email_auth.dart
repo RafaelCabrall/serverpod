@@ -238,7 +238,16 @@ class Emails {
         );
         return false;
       }
-
+      
+      await Users.findUserByUserName(session, userName);
+      if (userInfo != null) {
+        session.log(
+          "UserName: '$userName' already taken!",
+          level: LogLevel.debug,
+        );
+        return false;
+      }
+      
       email = email.trim().toLowerCase();
       if (!EmailValidator.validate(email)) {
         session.log(

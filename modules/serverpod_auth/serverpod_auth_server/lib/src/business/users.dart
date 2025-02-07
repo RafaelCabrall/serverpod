@@ -47,7 +47,16 @@ class Users {
       where: (t) => t.email.equals(email),
     );
   }
-
+  
+  static Future<UserInfo?> findUserByUserName(
+    Session session,
+    String userName,
+  ) async {
+    return await UserInfo.db.findFirstRow(
+      session,
+      where: (t) => t.userName.equals(userName),
+    );
+  }
   /// Finds a user by its sign in identifier. For Google sign ins, this is the
   /// email address. For Apple sign ins, this is a unique identifying string.
   /// Returns null if no user is found.

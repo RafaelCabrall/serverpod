@@ -3,7 +3,7 @@
 
 name: serverpod_auth_server
 description: Serverpod authentication server module.
-version: 2.3.1
+version: 2.3.2
 repository: https://github.com/serverpod/serverpod
 
 environment:
